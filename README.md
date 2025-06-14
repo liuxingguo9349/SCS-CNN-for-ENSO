@@ -24,18 +24,14 @@ SCS-CNN-for-ENSO/
 │   └── finetune_base.yaml
 │
 ├── src/
-│   ├── __init__.py
 │   ├── data_loader.py
 │   ├── models/
-│   │   ├── __init__.py
 │   │   └── scs_cnn.py
 │   ├── training/
-│   │   ├── __init__.py
 │   │   ├── trainer.py
 │   │   ├── lr_scheduler.py
 │   │   └── losses.py
 │   └── utils/
-│       ├── __init__.py
 │       ├── config_parser.py
 │       └── checkpoint.py
 │
