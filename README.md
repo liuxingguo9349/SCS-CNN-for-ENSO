@@ -16,17 +16,37 @@ Our work introduces the Spatio-Channel Scaling Convolutional Neural Network (SCS
 ```
 SCS-CNN-for-ENSO/
 │
-├── data/                  # Placeholder for raw NetCDF data files.
-├── configs/               # YAML configuration files for experiments.
-├── src/                   # Main source code.
-│   ├── data_loader.py     # Data loading and preprocessing pipeline.
-│   ├── models/scs_cnn.py  # SCS-CNN model architecture.
-│   └── training/          # Training, validation, and utility modules.
+├── data/
+│   ├── (Your .nc files go here)
 │
-├── scripts/               # Scripts for running experiments and plotting.
-├── main.py                # Main script to start a training run.
-├── requirements.txt       # Python dependencies.
-└── README.md              # This file.
+├── configs/
+│   ├── pretrain_base.yaml
+│   └── finetune_base.yaml
+│
+├── src/
+│   ├── __init__.py
+│   ├── data_loader.py
+│   ├── models/
+│   │   ├── __init__.py
+│   │   └── scs_cnn.py
+│   ├── training/
+│   │   ├── __init__.py
+│   │   ├── trainer.py
+│   │   ├── lr_scheduler.py
+│   │   └── losses.py
+│   └── utils/
+│       ├── __init__.py
+│       ├── config_parser.py
+│       └── checkpoint.py
+│
+├── scripts/
+│   ├── run_experiment.sh
+│   └── plot_results.py
+│
+├── main.py
+├── requirements.txt
+├── LICENSE
+└── README.md
 ```
 
 ## Installation
