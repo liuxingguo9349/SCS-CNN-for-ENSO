@@ -1,0 +1,44 @@
+# Base configuration for Pre-training on CMIP5
+run_name: "pretrain_lead{lead_time}_target{target_month}"
+
+# Data settings
+data:
+  input_path: "data/CMIP5.input.36mon.1861_2001.nc"
+  label_path: "data/CMIP5.label.12mon.1863_2003.nc"
+  variables: ['sst1', 't300']
+  dataset_type: "cmip5"
+
+# Model settings
+model:
+  name: "scs_cnn"
+  params:
+    num_conv: 30
+    num_hidd: 50
+    layer_scale_init_value: 0.1
+    spatial_scale_init_value: 0.1
+
+# Training settings
+training:
+  epochs: 200
+  batch_size: 400
+  optimizer:
+    type: "SGD"
+    args:
+      lr: 0.05
+      momentum: 0.9
+  scheduler:
+    type: "cosine_warmup"
+    args:
+      warmup_epochs: 5
+  loss_fn: "mse"
+
+# Validation settings (using SODA)
+validation:
+  input_path: "data/SODA.input.36mon.1871_1970.nc"
+  label_path: "data/SODA.label.12mon.1873_1972.nc"
+  variables: ['sst', 't300']
+  metric: "correlation" # Metric to select the best model
+
+# Hardware settings
+device: "cuda:0"
+num_workers: 4
