@@ -1,0 +1,46 @@
+# Base configuration for Fine-tuning on SODA
+run_name: "finetune_lead{lead_time}_target{target_month}"
+pretrain_checkpoint_path: "" # This will be set by the run script
+
+# Data settings
+data:
+  input_path: "data/SODA.input.36mon.1871_1970.nc"
+  label_path: "data/SODA.label.12mon.1873_1972.nc"
+  variables: ['sst', 't300']
+  dataset_type: "soda"
+
+# Model settings (should match pre-training)
+model:
+  name: "scs_cnn"
+  params:
+    num_conv: 30
+    num_hidd: 50
+    layer_scale_init_value: 0.1
+    spatial_scale_init_value: 0.1
+
+# Training settings
+training:
+  epochs: 50
+  batch_size: 20
+  optimizer:
+    type: "SGD"
+    args:
+      lr: 0.0005
+      momentum: 0.9
+  scheduler:
+    type: "cosine_warmup"
+    args:
+      warmup_epochs: 2
+  loss_fn: "mse"
+  calculate_saliency: True # Enable saliency map generation
+
+# Validation settings (using GODAS for monitoring)
+validation:
+  input_path: "data/GODAS.input.36mon.1980_2015.nc"
+  label_path: "data/GODAS.label.12mon.1982_2017.nc"
+  variables: ['sst', 't300']
+  metric: "correlation"
+
+# Hardware settings
+device: "cuda:0"
+num_workers: 2
