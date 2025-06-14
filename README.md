@@ -41,7 +41,6 @@ SCS-CNN-for-ENSO/
 │
 ├── main.py
 ├── requirements.txt
-├── LICENSE
 └── README.md
 ```
 
