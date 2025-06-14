@@ -1,4 +1,4 @@
-# SCS-CNN: An Interpretable Deep Learning Framework for ENSO Forecasting
+# SCS-CNN: An Interpretable-by-Design Spatio-Channel Scaling Attention for Spatio-Temporal Forecasting
 
 This repository contains the official PyTorch implementation for the paper: **"Unveiling El Niño Precursors: An Interpretable Deep Learning Framework with Spatio-Channel Scaling Attention"**.
 
