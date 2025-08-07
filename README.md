@@ -7,7 +7,7 @@ Our work introduces the Spatio-Channel Scaling Convolutional Neural Network (SCS
 ## Key Features
 
 - **Interpretable by Design:** The core SCS-Attention module provides direct insight into the model's learned spatial and channel-wise priorities.
-- **State-of-the-Art Performance:** Achieves high prediction skill for the Niño 3.4 index up to 18 months in advance.
+- **Demonstrates a certain long-term prediction capability:** Achieves results of reference value for the Niño 3.4 index up to 18 months in advance.
 - **Robust Training Strategy:** Implements a two-stage pre-training and fine-tuning workflow using both climate model (CMIP5) and reanalysis (SODA) data.
 - **Modular and Reproducible:** The codebase is structured for clarity, scalability, and easy reproduction of our results.
 
